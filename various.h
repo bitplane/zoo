@@ -71,3 +71,6 @@ unsigned int strlen PARMS ((char *));
 
 #endif /* ! ANSI_HDRS */
 
+/* Zoo's own fputchar -- not a standard library function */
+int fputchar PARMS ((int));
+

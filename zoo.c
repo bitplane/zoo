@@ -25,8 +25,8 @@ Copyright (C) 1986, 1987 Rahul Dhesi -- All rights reserved
 #include "errors.i"
 #include "zoomem.h"
 
-static void ms_help();
-static void wait_return();
+static void ms_help(char *);
+static void wait_return(void);
 
 #ifdef TRACE_IO
 int verbose = 0;
@@ -43,7 +43,7 @@ int next_arg = FIRST_ARG; /* filenames start at this position */
 int arg_count;          /* count of arguments supplied to program */
 char **arg_vector;      /* vector of arguments supplied to program */
 
-main(argc,argv)
+int main(argc,argv)
 register int argc;
 register char **argv;
 {

@@ -10,7 +10,7 @@ The contents of this file are hereby released to the public domain.
 /* Defines function declarations for all Zoo functions */
 
 #ifndef PARMS
-#ifdef LINT_ARGS
+#ifdef ANSI_PROTO
 #define	PARMS(x)		x
 #else
 #define	PARMS(x)		()
@@ -44,6 +44,8 @@ int chname PARMS ((char *, char *));
 int cmpnum PARMS ((unsigned int, unsigned int, unsigned int, unsigned int));
 T_SIGNAL ctrl_c PARMS ((int));
 int exists PARMS ((char *));
+int isadir PARMS ((ZOOFILE));
+int isfdir PARMS ((char *));
 int getfile PARMS ((ZOOFILE, ZOOFILE, long, int));
 int getutime PARMS ((char *, unsigned *, unsigned *));
 int gettime PARMS ((ZOOFILE, unsigned *, unsigned *));
@@ -90,7 +92,9 @@ void break_off PARMS ((void));
 void close_file PARMS ((ZOOFILE));
 void comment PARMS ((char *, char *));
 void extension PARMS ((char *, char []));
+#ifndef ANSI_HDRS
 void exit PARMS ((int));
+#endif
 void fixslash PARMS ((char *));
 void makelist PARMS ((int, char *[], char *[], int, char *, char *, char *, int *));
 void memerr PARMS ((unsigned int));

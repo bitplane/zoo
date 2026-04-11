@@ -21,10 +21,10 @@ file by supplying the offset of the file.
 #include "portable.h"         /* I/O definitions */
 #include "zoo.h"
 
-void prtctrl ();
-void prtch ();
+void prtctrl (char *);
+void prtch (unsigned int);
 
-main(argc,argv)
+int main(argc,argv)
 register int argc;
 register char **argv;
 {

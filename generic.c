@@ -63,8 +63,6 @@ long gettz()
 #define SEC_IN_DAY	(24L * 60L * 60L)
 #define INV_VALUE		(SEC_IN_DAY + 1L)
 	static long retval = INV_VALUE;	     /* cache, init to impossible value */
-	extern long time();
-	extern struct tm *localtime();
 	long now;
 	long noon;
 	struct tm *noontm;

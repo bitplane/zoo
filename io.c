@@ -17,7 +17,8 @@ Adapted from "ar" archiver written by Haruhiko Okumura.
 #include "zooio.h"	/* for NULLFILE */
 #include "portable.h"
 
-extern void prterror();
+void prterror PARMS((int, char *, ...));
+void addbfcrc PARMS((char *, int));
 
 #include "errors.i"
 
@@ -119,7 +120,7 @@ uint x;
 	}
 }
 
-extern void addbfcrc();
+/* addbfcrc declared above */
 
 int fread_crc(p, n, f)
 uchar *p;

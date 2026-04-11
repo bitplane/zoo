@@ -105,6 +105,8 @@ For documentation about this file, see options.doc.
 #ifndef ANSI_HDRS
 #define ANSI_HDRS
 #endif
+#include <unistd.h>
+#include <sys/stat.h>
 #define T_SIGNAL        void
 #define STDARG
 #define ANSI_PROTO

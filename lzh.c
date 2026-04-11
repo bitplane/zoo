@@ -10,7 +10,7 @@ lzh compression and uncompression interface module
 
 FILE *arcfile;
 
-extern void prterror();
+void prterror PARMS((int, char *, ...));
 
 extern char *out_buf_adr;			/* address of buffer */
 
@@ -18,7 +18,7 @@ int lzh_encode(infile, outfile)
 FILE *infile;
 FILE *outfile;
 {
-	extern void encode();
+	extern void encode(FILE *, FILE *);
 	encode(infile, outfile);
 	return 0;
 }

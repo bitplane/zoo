@@ -15,7 +15,7 @@ Adapted from "ar" archiver written by Haruhiko Okumura.
 #include "lzh.h"
 #include "errors.i"
 
-extern void prterror();
+void prterror PARMS((int, char *, ...));
 
 #define NP (DICBIT + 1)
 #define NT (CODE_BIT + 3)

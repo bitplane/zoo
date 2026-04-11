@@ -39,7 +39,7 @@ char *option;
 int choice;
 {
 #ifndef NOSIGNAL
-   T_SIGNAL (*oldsignal)();        /* to save previous SIGINT handler */
+   T_SIGNAL (*oldsignal)(int);        /* to save previous SIGINT handler */
 #endif
    int delcount = 0;          /* how many entries we [un]deleted */
    char matchname[PATHSIZE];  /* will hold full pathname */

@@ -35,7 +35,7 @@ void comment(zoo_path, option)
 char *zoo_path, *option;
 {
 #ifndef NOSIGNAL  
-T_SIGNAL (*oldsignal)();
+T_SIGNAL (*oldsignal)(int);
 #endif
 ZOOFILE zoo_file;                         /* stream for open archive */
 long next_ptr;                            /* pointers to within archive */

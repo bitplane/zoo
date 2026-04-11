@@ -15,7 +15,7 @@ The contents of this file are hereby placed in the public domain.
 #include "zoo.h"
 
 #ifndef PARMS
-#ifdef LINT_ARGS
+#ifdef ANSI_PROTO
 #define	PARMS(x)		x
 #else
 #define	PARMS(x)		()

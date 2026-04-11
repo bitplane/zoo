@@ -62,7 +62,7 @@ char *zoo_path, *option;
 char *whichname;                          /* which name to extract */
 char matchname[PATHSIZE];                 /* for pattern matching only */
 #ifndef NOSIGNAL
-T_SIGNAL (*oldsignal)();        /* to save previous SIGINT handler */
+T_SIGNAL (*oldsignal)(int);        /* to save previous SIGINT handler */
 #endif
 ZOOFILE zoo_file;                         /* open archive */
 long next_ptr;                            /* pointer to within archive */
@@ -518,7 +518,7 @@ while (1) {
             if (tofile) {
                /* set date/time of file being extracted */
 #ifdef GETTZ
-					void tzadj();
+					void tzadj(struct direntry *);
 					/* adjust for original timezone */
 					tzadj (&direntry);
 #endif

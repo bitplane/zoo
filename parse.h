@@ -20,7 +20,7 @@ struct path_st {
    char ext[EXTLEN+1+XTRA];         /* extension        */
 };
 
-#ifdef LINT_ARGS
+#ifdef ANSI_PROTO
 void parse (struct path_st *, char *);
 #else
 void parse();

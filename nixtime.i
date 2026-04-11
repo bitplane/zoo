@@ -11,8 +11,6 @@ The contents of this file are hereby released to the public domain.
                                     -- Rahul Dhesi  1986/12/31
 */
 
-struct tm *localtime();
-
 /*****************
 Function gettime() gets the date and time of the file handle supplied.
 Date and time is in MSDOS format.
@@ -49,11 +47,11 @@ int setutime(path,date,time)
 char *path;
 unsigned int date, time;
 {
-	long mstonix();
-	long gettz();
-	long utimbuf[2];
-	utimbuf[0] = utimbuf[1] = gettz() + mstonix (date, time);
-	return (utime (path, utimbuf));
+	long mstonix(unsigned int, unsigned int);
+	long gettz(void);
+	struct utimbuf utimbuf;
+	utimbuf.actime = utimbuf.modtime = gettz() + mstonix (date, time);
+	return (utime (path, &utimbuf));
 }
 
 /****************

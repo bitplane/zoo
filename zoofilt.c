@@ -41,8 +41,7 @@ char *option;
 	unsigned int filetag;							/* tag stored in input */
 	int stat1, stat2, stat3;						/* status codes */
 	int use_lzh = 0;									/* use lzh instead */
-	extern lzc(), lzh_encode();					/* possible encoders */
-	extern lzd(), lzh_decode();					/* and decoders */
+	/* lzc, lzd, lzh_encode, lzh_decode declared in zoofns.h */
 
 	while (*++option) {
 		switch (*option) {

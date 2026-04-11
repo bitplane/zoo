@@ -10,7 +10,7 @@ Adapted from "ar" archiver written by Haruhiko Okumura.
 #include "ar.h"
 #include "lzh.h"
 
-extern void prterror();
+void prterror PARMS((int, char *, ...));
 
 void make_table(nchar, bitlen, tablebits, table)
 int nchar;

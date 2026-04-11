@@ -305,8 +305,8 @@ to reflect its timezone.  Uses function mstime() from mstime.i
 and mstonix() from nixtime.i.
 */
 
-long mstonix();
-long gettz();
+long mstonix(unsigned int, unsigned int);
+long gettz(void);
 #include "mstime.i"	/* get mstime() */
 
 void tzadj (direntry)

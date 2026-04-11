@@ -29,7 +29,9 @@ int fd;
 { return (lseek (fd, 0L, 1)); }
 #endif
 
-long ftell();
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
 
 /****************
 Function fixfname() converts the supplied filename to a syntax
@@ -110,7 +112,6 @@ long gettz()
 /* Truncate a file. */
 int zootrunc(f) FILE *f;
 {
-	extern long lseek();
 	long seekpos;
 	int fd = fileno(f);
 	seekpos = lseek(fd, 0L, SEEK_CUR);

@@ -59,7 +59,7 @@ char temp_file[PATHSIZE];
 static char xes[]="XXXXXX";               /* template for temp file */
 
 #ifndef NOSIGNAL
-T_SIGNAL (*oldsignal)();
+T_SIGNAL (*oldsignal)(int);
 #endif
 register ZOOFILE zoo_file;                /* archive */
 ZOOFILE new_file;                         /* destination archive */

@@ -116,7 +116,9 @@ int make_tree
   void move_left();
 #else
 # define MOVE_LEFT memmove
- extern VOIDPTR memmove();
+# ifndef ANSI_HDRS
+  extern VOIDPTR memmove();
+# endif
 #endif
 
 #if 0

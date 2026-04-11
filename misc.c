@@ -201,7 +201,7 @@ struct direntry *direntry;
 ZOOFILE zoo_file;
 {
 #ifndef NOSIGNAL  
-   T_SIGNAL (*oldsignal)();
+   T_SIGNAL (*oldsignal)(int);
    oldsignal = signal (SIGINT, SIG_IGN);
 #endif
    if (fwr_dir (direntry, zoo_file) == -1)
@@ -335,7 +335,7 @@ ZOOFILE file;
 int length;
 {
 #ifndef NOSIGNAL
-   T_SIGNAL (*oldsignal)();
+   T_SIGNAL (*oldsignal)(int);
 #endif
    struct direntry newentry;
    memset ((char *) &newentry, 0, sizeof (newentry));
