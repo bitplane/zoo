@@ -163,7 +163,7 @@ if (fiz_ofs != 0L) {                /* if offset specified, start there */
 } else {
    /* read header */
    frd_zooh (&zoo_header, zoo_file);
-   if ((zoo_header.zoo_start + zoo_header.zoo_minus) != 0L) {
+   if (((zoo_header.zoo_start + zoo_header.zoo_minus) & 0xffffffffL) != 0L) {
       prterror ('w', failed_consistency);
       bad_header++;
 		exit_status = 1;

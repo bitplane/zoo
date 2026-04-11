@@ -172,7 +172,7 @@ int preserve;
 
    frd_zooh (header, zoo_file);
 
-   if ((header->zoo_start + header->zoo_minus) != 0L)
+   if (((header->zoo_start + header->zoo_minus) & 0xffffffffL) != 0L)
       prterror ('f', failed_consistency);
    if (ver_too_high (header))
       prterror ('f', wrong_version, header->major_ver, header->minor_ver);

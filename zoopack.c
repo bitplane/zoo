@@ -139,7 +139,7 @@ if (zoo_file == NOFILE)
 /* Read the header of the old archive. */
 frd_zooh(&old_zoo_header, zoo_file);
 
-if ((old_zoo_header.zoo_start + old_zoo_header.zoo_minus) != 0L) {
+if (((old_zoo_header.zoo_start + old_zoo_header.zoo_minus) & 0xffffffffL) != 0L) {
    prterror ('w', failed_consistency);
    ++bad_header;                    /* remember for future error message */
 }
