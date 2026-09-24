@@ -90,6 +90,12 @@ For documentation about this file, see options.doc.
 #ifdef BSD4_3
 #define FILTER
 #define IO_MACROS
+#ifdef _WIN32
+#include <io.h>
+#include <fcntl.h>
+#define MODE_BIN(f) _setmode(_fileno(f), _O_BINARY)
+#define MODE_TEXT(f) _setmode(_fileno(f), _O_TEXT)
+#endif
 #define EXISTS(f)		(access(f, 00) == 0)
 #define FNLIMIT 1023
 #define CHEKDIR

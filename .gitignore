@@ -3,3 +3,4 @@ fiz
 
 *.o
 *.zoo
+/dist/
