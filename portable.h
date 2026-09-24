@@ -87,7 +87,11 @@ int mkdir (char *);
 /* 4.3BSD */
 #ifdef BSD4_3
 #define NIX_IO       /* standard **IX I/O */
+#ifdef _WIN32
+#define MKDIR(x)        mkdir(x)
+#else
 #define  MKDIR(x)       mkdir(x, 0777)
+#endif
 #endif
 
 /* Amiga */
@@ -98,10 +102,17 @@ int mkdir (char *);
 /* Standard **IX I/O definitions */
 #ifdef   NIX_IO
 /* options for zooopen(), zoocreate() */
+#ifdef _WIN32
+#define  Z_WRITE        "r+b"
+#define  Z_READ         "rb"
+#define  Z_RDWR         "r+b"
+#define  Z_NEW          "w+b"
+#else
 #define  Z_WRITE        "r+"
 #define  Z_READ         "r"
 #define  Z_RDWR         "r+"
 #define	Z_NEW				"w+"
+#endif
 #define	zgetc(x)			getc(x)
 #define  zputc(c, f)		putc(c, f)
 #define	zputchar(c)		putchar(c)
