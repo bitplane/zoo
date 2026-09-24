@@ -5,7 +5,7 @@ tag=${1:?usage: publish.sh <tag> <archive>...}
 shift
 [ "$#" -gt 0 ]
 version=${tag#v}
-case "$tag" in v[0-9]*) ;; *) echo "Expected a version tag" >&2; exit 1 ;; esac
+case "$tag" in v[0-9]*|[0-9]*) ;; *) echo "Expected a version tag" >&2; exit 1 ;; esac
 case "$version" in *[!0-9.]*) echo "Invalid release version" >&2; exit 1 ;; esac
 : "${PKG_SIGNKEY:?Set PKG_SIGNKEY to your signing key file}"
 

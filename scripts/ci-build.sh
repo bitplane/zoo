@@ -26,8 +26,9 @@ printf 'zoo release smoke\n\000\032\r\n\377' > "$work/hello.bin"
     cmp ../hello.bin hello.bin
 )
 
-if [ -n "${GITHUB_REF_NAME:-}" ] && [ "${GITHUB_REF_NAME#v}" != "$GITHUB_REF_NAME" ]; then
+if [ "${GITHUB_REF_TYPE:-}" = tag ]; then
     version=${GITHUB_REF_NAME#v}
+    case "$version" in ''|*[!0-9.]*) echo "Invalid release version: $version" >&2; exit 1 ;; esac
     stage="zoo-$version-$target"
     mkdir -p "dist/$stage"
     cp "zoo$exe" "fiz$exe" Copyright Install zoo.1 fiz.1 "dist/$stage/"
